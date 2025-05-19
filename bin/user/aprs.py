@@ -261,7 +261,7 @@ class WeewxAprsTnc(StdService):
         fields.append("b%05d" % int(data['barometer'] * 10))
         fields.append(" %s" % self.comment)
         
-        packet = "%s%s" % (time.strftime("@%d%H%Mz", time.gmtime(data['dateTime'])), ''.join(fields))
+        packet = "%s%s" % (time.strftime("/%d%H%Mz", time.gmtime(data['dateTime'])), ''.join(fields))
         
         try:
             with open("/tmp/aprs.pkt", 'w') as f:
